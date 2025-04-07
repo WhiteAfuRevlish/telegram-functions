@@ -3,7 +3,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  const { id: orderId, customer_id, total_amount, payment_method } = req.body;
+const { record } = req.body;
+const { id: orderId, customer_id, total_amount, payment_method } = record;
+
 
   // 💡 Supabase config
   const SUPABASE_URL = 'https://gaitzkxrbuzraysohewf.supabase.co';
