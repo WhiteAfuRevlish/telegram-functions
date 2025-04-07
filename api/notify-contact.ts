@@ -3,7 +3,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  const { name, phone, message } = req.body;
+   const { record } = req.body;
+  const { name, phone, message } = record;
 
   const text = `
 📥 *Нове повідомлення зв'яжіться з нами!*
