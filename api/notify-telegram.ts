@@ -8,8 +8,8 @@ const { id: orderId, customer_id, total_amount, payment_method } = record;
 
 
   // 💡 Supabase config
-  const SUPABASE_URL = 'https://gaitzkxrbuzraysohewf.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdhaXR6a3hyYnV6cmF5c29oZXdmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MzQ0OTc0MSwiZXhwIjoyMDU5MDI1NzQxfQ.1_HDbgDPlUZ74hEeGtd1rlbFYt9CUWH64wFi81U_cNo';
+  const SUPABASE_URL = process.env.SUPABASE_URL;
+  const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
 
   // 🔹 Запит клієнта
   const customerRes = await fetch(`${SUPABASE_URL}/rest/v1/customers?id=eq.${customer_id}`, {
@@ -44,7 +44,7 @@ ${items.map((item) => `- ${item.product_name} x${item.quantity} = ${item.price *
   `;
 
   const chatIds = ['345118990', '193480574'];
-  const TELEGRAM_BOT_TOKEN = '7852252128:AAH8eMQKVCc3rfzE2AVscbJL02OuQ1W8fdc';
+  const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
   // Відправлення у Telegram
   await Promise.all(chatIds.map(chatId =>
