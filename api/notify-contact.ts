@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 ${message}
   `;
 
-  const TELEGRAM_BOT_TOKEN = '7852252128:AAH8eMQKVCc3rfzE2AVscbJL02OuQ1W8fdc';
+  const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
   const chatIds = ['345118990', '193480574'];
 
   await Promise.all(chatIds.map(chatId =>
